@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours : Se préparer à l'entretien - Électricien du Bâtiment</title>
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary-color: #0f172a; /* Bleu nuit professionnel */
+            --accent-color: #f59e0b; /* Orange sécurité/chantier */
+            --secondary-color: #3b82f6; /* Bleu électrique */
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #f1f5f9;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        /* --- LAYOUT & STRUCTURE --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            min-height: 90vh;
+            padding: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--text-light);
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background-color: var(--accent-color);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        ul { list-style: none; }
+
+        /* --- COMPONENTS --- */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background-color: #eff6ff;
+            border: 2px dashed var(--secondary-color);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .training-box {
+            background-color: #f0fdf4;
+            border: 2px solid #22c55e;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .training-box h3 { color: #15803d; margin-top: 0; border: none; padding: 0; }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #cbd5e1;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background-color: var(--accent-color);
+            transform: scale(1.4);
+        }
+
+        /* --- BUTTON IMPRIMER --- */
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 200;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .print-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- SPECIFIC SECTIONS --- */
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), 
+                        url('https://picsum.photos/seed/interview/1920/1080.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding-top: 5rem;
+        }
+
+        .hero-meta { font-size: 1.5rem; color: var(--accent-color); font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; }
+
+        /* Steps */
+        .step-list {
+            list-style: none;
+            counter-reset: steps;
+            padding: 0;
+            max-width: 800px;
+        }
+        .step-list li {
+            position: relative;
+            padding-left: 4rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .step-list li::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: -5px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+        }
+
+        /* Comparison Boxes */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .compare-bad {
+            background: #fff1f2;
+            padding: 1.5rem;
+            border-left: 4px solid #e11d48;
+            border-radius: 8px;
+        }
+        .compare-good {
+            background: #f0fdf4;
+            padding: 1.5rem;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+        }
+
+        /* Icons SVG */
+        svg { width: 24px; height: 24px; fill: currentColor; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .nav-dots { display: none; }
+            body { font-size: 16px; }
+        }
+
+        /* --- PRINT STYLES --- */
+        @media print {
+            @page { margin: 1cm; }
+            body { background: white; color: black; font-size: 12pt; line-height: 1.4; }
+            .print-btn, .nav-dots { display: none !important; }
+            section { page-break-inside: avoid; min-height: auto; padding: 1rem 0; border-bottom: 1px solid #ddd; margin-bottom: 2rem; }
+            h1, h2 { color: black; border-bottom: 2px solid black; margin-top: 0;}
+            h1 { font-size: 24pt; margin-bottom: 1rem; }
+            h2 { font-size: 18pt; padding-bottom: 0.5rem; }
+            h3 { color: #444; font-size: 14pt; }
+            
+            .hero { background: none !important; color: black; border-bottom: 2px solid black; padding: 0; min-height: auto; margin-bottom: 2rem; }
+            .hero-meta { color: black; }
+            
+            .card, .highlight-box, .training-box { box-shadow: none; border: 1px solid #ccc; background: white; padding: 1rem; page-break-inside: avoid; }
+            .compare-bad { background: #f9f9f9; border-left: 2px solid black; }
+            .compare-good { background: #f9f9f9; border-left: 2px solid black; }
+            
+            svg { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bouton Imprimer / Télécharger PDF -->
+    <button class="print-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" style="width: 20px; height: 20px;"><path d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 12v2H8v-2h8zm2-2v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4h-2z"/><circle cx="18" cy="11.5" r="1"/></svg>
+        Imprimer / PDF
+    </button>
+
+    <!-- Navigation Latérale -->
+    <nav class="nav-dots">
+        <a href="#intro" class="nav-dot active" title="Introduction"></a>
+        <a href="#objectif" class="nav-dot" title="Objectif"></a>
+        <a href="#presentation" class="nav-dot" title="Présentation"></a>
+        <a href="#questions" class="nav-dot" title="Questions fréquentes"></a>
+        <a href="#reponses" class="nav-dot" title="Réponses pro"></a>
+        <a href="#forces" class="nav-dot" title="Points forts"></a>
+        <a href="#difficultes" class="nav-dot" title="Difficultés"></a>
+        <a href="#motivation" class="nav-dot" title="Motivation"></a>
+        <a href="#attitudes" class="nav-dot" title="Attitudes"></a>
+        <a href="#erreurs" class="nav-dot" title="Erreurs"></a>
+        <a href="#exemples" class="nav-dot" title="Exemples"></a>
+        <a href="#entrainement" class="nav-dot" title="Entraînement"></a>
+        <a href="#synthese" class="nav-dot" title="Synthèse"></a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="intro" class="section hero">
+        <div class="container">
+            <div class="hero-meta">Module 4</div>
+            <h1>Se préparer à l’entretien</h1>
+            <p class="subtitle">Méthodologie et préparation pour réussir</p>
+            
+            <div class="highlight-box" style="background: rgba(255,255,255,0.1); border-color: white; color: white; backdrop-filter: blur(5px);">
+                <h3>Le message clé</h3>
+                <p style="font-size: 1.4rem; margin-bottom: 0;">
+                    L’entretien n’est pas un examen scolaire. C’est un échange professionnel destiné à vérifier si vous correspondez au poste, à l’équipe et à l’entreprise. Pour un électricien, le recruteur cherche surtout quelqu’un de sérieux, rigoureux, attentif à la sécurité et capable de progresser.
+                </p>
+            </div>
+
+            <!-- AJOUT: Bloc Ressources (Podcast + PDF) -->
+            <div class="card" style="border-left: 5px solid var(--accent-color); margin-top: 2rem; text-align: left;">
+                <h3 style="margin-top:0; color: var(--text-light);">📚 Ressources du cours</h3>
+                
+                <!-- Podcast Audio -->
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>Podcast :</strong> "L'entretien d embauche version chantier"</p>
+                    <audio controls autoplay style="width: 100%; outline: none;">
+                        <source src="L'entretien d embauche version chantier.m4a" type="audio/mp4">
+                        Votre navigateur ne supporte pas l'élément audio.
+                    </audio>
+                </div>
+
+                <!-- Document PDF -->
+                <div>
+                    <a href="L'entretien d embauche version chantier.pdf" target="_blank" class="tag" style="text-decoration: none; background-color: var(--accent-color); color: var(--text-dark);">
+                        📄 Télécharger le document PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 4.1 OBJECTIF -->
+    <section id="objectif">
+        <div class="container">
+            <h2>4.1 Comprendre l’objectif de l’entretien</h2>
+            <p>L’entretien sert à vérifier plusieurs points. Un recruteur ne cherche pas forcément un profil parfait, mais une personne <strong>fiable</strong>, <strong>claire</strong> et <strong>crédible</strong>.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div class="card" style="border-left: 5px solid var(--accent-color);">
+                    <h3 style="margin-top:0; font-size: 1.4rem;">Motivation</h3>
+                    <p style="margin:0">Le niveau d'intérêt pour le métier.</p>
+                </div>
+                <div class="card" style="border-left: 5px solid var(--secondary-color);">
+                    <h3 style="margin-top:0; font-size: 1.4rem;">Métier & Équipe</h3>
+                    <p style="margin:0">La compréhension du poste et la capacité à travailler avec les autres.</p>
+                </div>
+                <div class="card" style="border-left: 5px solid var(--primary-color);">
+                    <h3 style="margin-top:0; font-size: 1.4rem;">Sécurité & Rigueur</h3>
+                    <p style="margin:0">Le respect des consignes et la disponibilité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.2 PRÉSENTATION -->
+    <section id="presentation" style="background-color: #fff;">
+        <div class="container">
+            <h2>4.2 Préparer sa présentation personnelle</h2>
+            <p>Le candidat doit être capable de se présenter en <strong>1 à 2 minutes</strong>. Simple et structuré.</p>
+
+            <div style="display: flex; gap: 4rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>La trame efficace</h3>
+                    <ul class="step-list">
+                        <li><strong>Qui je suis.</strong></li>
+                        <li><strong>Quelle formation j’ai suivie.</strong></li>
+                        <li><strong>Ce que j’ai appris.</strong></li>
+                        <li><strong>Ce que je sais faire.</strong></li>
+                        <li><strong>Ce que je recherche.</strong></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3>Exemple de discours</h3>
+                    <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-color); font-style: italic;">
+                        “Je suis titulaire du TP Électricien d’équipement du bâtiment. J’ai appris à réaliser des installations électriques, à effectuer des raccordements et à travailler dans le respect des règles de sécurité. Je suis motivé, sérieux et j’aime le travail concret sur chantier. Aujourd’hui, je recherche un poste qui me permette de mettre mes compétences en pratique et de continuer à progresser.”
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.3 QUESTIONS & 4.4 RÉPONSES -->
+    <section id="questions">
+        <div class="container">
+            <h2>4.3 & 4.4 Questions fréquentes & Réponses pro</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Liste Questions -->
+                <div class="card">
+                    <h3 style="margin-top:0;">Les questions classiques</h3>
+                    <ul style="list-style-type: disc; padding-left: 1.2rem; font-size: 0.95rem;">
+                        <li>Pourquoi ce métier ?</li>
+                        <li>Pourquoi cette entreprise ?</li>
+                        <li>Quelles sont vos compétences principales ?</li>
+                        <li>Avez-vous travaillé sur chantier ?</li>
+                        <li>Réaction face à un problème/imprévu ?</li>
+                        <li>Connaissances en sécurité ?</li>
+                        <li>Mobilité / Disponibilités ?</li>
+                        <li>Où vous voyez-vous dans quelques mois ?</li>
+                    </ul>
+                </div>
+
+                <!-- Critères Réponses -->
+                <div class="card">
+                    <h3 style="margin-top:0;">Une réponse professionnelle est :</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="color: var(--secondary-color);">✔ Courte</div>
+                        <div style="color: var(--secondary-color);">✔ Précise</div>
+                        <div style="color: var(--secondary-color);">✔ Honnête</div>
+                        <div style="color: var(--secondary-color);">✔ Illustrée par un exemple</div>
+                    </div>
+
+                    <h4>À éviter :</h4>
+                    <ul style="list-style-type: square; padding-left: 1.2rem; font-size: 0.9rem; color: #881337;">
+                        <li>Réponses trop longues.</li>
+                        <li>Hésitations inutiles.</li>
+                        <li>Phrases négatives.</li>
+                        <li>Mensonges.</li>
+                        <li>Formulations trop familières.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <h4>Exemple de bonne réponse (Sécurité) :</h4>
+                <p style="margin:0; font-style: italic;">
+                    “Je travaille avec attention, surtout quand il s’agit de sécurité. Pendant ma formation, j’ai appris à respecter les consignes et à vérifier mon matériel avant de commencer une tâche.”
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.5 POINTS FORTS -->
+    <section id="forces" style="background-color: #fff;">
+        <div class="container">
+            <h2>4.5 Parler de ses points forts</h2>
+            <p>Citez 3 à 4 points forts utiles au métier et reliez-les à une situation vécue.</p>
+
+            <div class="grid-3" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 2rem 0;">
+                <span class="tag" style="background: white; color: var(--text-dark); border: 1px solid #cbd5e1;">Rigueur</span>
+                <span class="tag" style="background: white; color: var(--text-dark); border: 1px solid #cbd5e1;">Sens de la sécurité</span>
+                <span class="tag" style="background: white; color: var(--text-dark); border: 1px solid #cbd5e1;">Esprit d’équipe</span>
+                <span class="tag" style="background: white; color: var(--text-dark); border: 1px solid #cbd5e1;">Motivation</span>
+                <span class="tag" style="background: white; color: var(--text-dark); border: 1px solid #cbd5e1;">Apprentissage rapide</span>
+                <span class="tag" style="background: white; color: var(--text-dark); border: 1px solid #cbd5e1;">Organisation</span>
+            </div>
+
+            <div style="background: #eff6ff; padding: 2rem; border-radius: 12px;">
+                <h3>Relier le point fort à une preuve</h3>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 1rem;">🔹 “Je suis rigoureux, <strong>car</strong> je vérifie toujours mon matériel avant d’intervenir.”</li>
+                    <li style="margin-bottom: 1rem;">🔹 “Je suis à l’écoute, <strong>car</strong> je prends le temps de comprendre les consignes.”</li>
+                    <li style="margin-bottom: 1rem;">🔹 “Je suis ponctuel, <strong>car</strong> je sais que le chantier dépend de l’organisation de chacun.”</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.6 DIFFICULTÉS -->
+    <section id="difficultes">
+        <div class="container">
+            <h2>4.6 Parler de ses difficultés sans se dévaloriser</h2>
+            <p>Le but : montrer qu'on se connaît et qu'on progresse. Ne pas se diminuer, mais rester honnête.</p>
+
+            <div class="comparison-container">
+                <div class="compare-bad">
+                    <strong>❌ À éviter</strong>
+                    <p>“Je suis nul en lecture de plan.”</p>
+                    <p>“Je ne sais pas faire ça.”</p>
+                </div>
+                <div class="compare-good">
+                    <strong>✓ La formulation positive</strong>
+                    <p>“Je gagne encore en rapidité, mais je préfère prendre le temps de bien faire.”</p>
+                    <p>“Je continue à développer mon autonomie, tout en restant attentif aux consignes.”</p>
+                    <p>“Je renforce mes connaissances sur certains équipements, mais j’apprends vite.”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.7 MOTIVATION -->
+    <section id="motivation" style="background-color: #fff;">
+        <div class="container">
+            <h2>4.7 Montrer sa motivation</h2>
+            <p>La motivation doit être concrète. Évitez les phrases vagues.</p>
+
+            <div class="highlight-box">
+                <h3>Expliquez :</h3>
+                <ul style="list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Ce que vous aimez dans le travail.</li>
+                    <li>Pourquoi cette entreprise.</li>
+                    <li>Ce que vous voulez apprendre.</li>
+                    <li>Votre projection.</li>
+                </ul>
+
+                <h4>Exemple :</h4>
+                <p style="font-style: italic;">
+                    “Ce métier me plaît parce qu’il est concret, technique et utile. J’aime le travail de terrain, le fait de voir le résultat de ce que l’on réalise, et l’idée de progresser dans une équipe.”
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.8 ATTITUDES & 4.9 ERREURS -->
+    <section id="attitudes">
+        <div class="container">
+            <h2>4.8 & 4.9 Attitudes et Erreurs</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="card" style="border-top: 5px solid #22c55e;">
+                    <h3 style="margin-top:0; color: #15803d;">Les bonnes attitudes</h3>
+                    <ul style="list-style-type: check; padding-left: 1.2rem;">
+                        <li>Arriver à l'heure.</li>
+                        <li>Être correctement habillé.</li>
+                        <li>Couper son téléphone.</li>
+                        <li>Saluer poliment.</li>
+                        <li>Regarder son interlocuteur.</li>
+                        <li>Écouter jusqu’au bout.</li>
+                        <li>Parler distinctement.</li>
+                        <li>Remercier en fin.</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border-top: 5px solid #e11d48;">
+                    <h3 style="margin-top:0; color: #b91c1c;">Les erreurs à éviter</h3>
+                    <ul style="list-style-type: square; padding-left: 1.2rem; color: #881337;">
+                        <li>Arriver sans avoir relu son CV.</li>
+                        <li>Ne pas connaître le nom de l'entreprise.</li>
+                        <li>Répondre “je ne sais pas” systématiquement.</li>
+                        <li>Trop parler sans répondre.</li>
+                        <li>Réponses floues ou contradictoires.</li>
+                        <li>Critiquer une ancienne formation/employeur.</li>
+                        <li>Oublier la sécurité dans ses réponses.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.10 EXEMPLES -->
+    <section id="exemples" style="background-color: #fff;">
+        <div class="container">
+            <h2>4.10 Préparer des exemples concrets</h2>
+            <p>Les recruteurs apprécient les cas précis. Préparez à l'avance :</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                <div class="card" style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🤝</div>
+                    <h4 style="font-size: 1rem;">Travail en équipe</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0">Une situation où vous avez collaboré.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚠️</div>
+                    <h4 style="font-size: 1rem;">Sécurité</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0">Une situation où vous avez respecté une consigne.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🛠️</div>
+                    <h4 style="font-size: 1rem;">Résolution</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0">Une difficulté que vous avez surmontée.</p>
+                </div>
+                <div class="card" style="text-align: center; padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚀</div>
+                    <h4 style="font-size: 1rem;">Apprentissage</h4>
+                    <p style="font-size: 0.9rem; margin-bottom:0">Une situation où vous avez appris vite.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENTRAINEMENT -->
+    <section id="entrainement" style="background-color: #f1f5f9;">
+        <div class="container">
+            <h2>Entraînement et préparation</h2>
+
+            <!-- Exercice 1 -->
+            <div class="training-box">
+                <h3>Exercice 1 : La présentation en 1 minute</h3>
+                <p><strong>Conseil pour se préparer et s'entraîner :</strong> Préparez votre présentation orale et entrainez-vous à la dire devant le groupe pour gagner en aisance.</p>
+                <p><strong>Retour du groupe :</strong></p>
+                <ul style="display: flex; gap: 1rem; flex-wrap: wrap; list-style: none;">
+                    <li class="tag" style="background: white; color: black; border: 1px solid #ccc;">Clarté</li>
+                    <li class="tag" style="background: white; color: black; border: 1px solid #ccc;">Fluidité</li>
+                    <li class="tag" style="background: white; color: black; border: 1px solid #ccc;">Confiance</li>
+                    <li class="tag" style="background: white; color: black; border: 1px solid #ccc;">Éléments à améliorer</li>
+                </ul>
+                
+                <!-- AJOUT: Lien Exercice 1 -->
+                <div style="margin-top: 1.5rem; text-align: center; padding-top: 1.5rem; border-top: 1px dashed #22c55e;">
+                    <a href="https://francoismog.github.io/Activit-_Presentez-vous/" target="_blank" class="tag" style="background-color: var(--secondary-color); color: white; text-decoration: none; font-size: 1.1rem; justify-content: center;">
+                        🔗 Lancer l'activité : La présentation en 1 minute
+                    </a>
+                </div>
+            </div>
+
+            <!-- Exercice 2 -->
+            <div class="card" style="border-left: 5px solid var(--secondary-color); margin-top: 2rem;">
+                <h3 style="margin-top:0; color: var(--secondary-color);">Exercice 2 : Simulation d’entretien</h3>
+                <p><strong>Conseil pour se préparer et s'entraîner :</strong> Effectuez des simulations d'entretien avec le formateur pour vous habituer à répondre à des questions tout en restant simple et professionnel.</p>
+
+                <!-- AJOUT: Lien Exercice 2 -->
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed #cbd5e1;">
+                    <a href="https://francoismog.github.io/TP-EEB---simulateur-d-entretien/" target="_blank" class="tag" style="background-color: var(--secondary-color); color: white; text-decoration: none; font-size: 1.1rem; justify-content: center;">
+                        🔗 Lancer le simulateur d'entretien
+                    </a>
+                </div>
+            </div>
+
+            <!-- Exercice 3 -->
+            <div class="card" style="margin-top: 2rem; border-left: 5px solid var(--accent-color);">
+                <h3 style="margin-top:0; color: var(--accent-color);">Exercice 3 : reformuler une réponse</h3>
+                <p><strong>Conseil pour se préparer et s'entraîner :</strong> Entraînez-vous à reformuler vos réponses pour les rendre plus professionnelles.</p>
+                <div style="background: #f8fafc; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
+                    <p style="margin-bottom: 1rem;"><strong>Exemple :</strong></p>
+                    <p>“Je suis motivé.”</p>
+                    <div style="text-align: center; font-weight: bold; color: var(--secondary-color); margin: 1rem 0;">↓ <span style="font-size: 1.5rem;">Transformer en :</span> ↓</div>
+                    <p style="font-style: italic;">“Je suis motivé parce que j’aime le travail de terrain et que je souhaite progresser dans une entreprise où je pourrai apprendre davantage.”</p>
+                </div>
+            </div>
+
+            <!-- Exercice 4 -->
+            <div class="card" style="margin-top: 2rem; border-left: 5px solid var(--accent-color);">
+                <h3 style="margin-top:0; color: var(--accent-color);">Exercice 4 : préparer ses réponses</h3>
+                <p><strong>Conseil pour se préparer et s'entraîner :</strong> Remplissez une fiche de préparation pour structurer vos idées et ne rien oublier.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>👉 Mes points forts</div>
+                    <div>👉 Mes compétences</div>
+                    <div>👉 Mes difficultés</div>
+                    <div>👉 Mes disponibilités</div>
+                    <div>👉 Mes motivations</div>
+                    <div>👉 Mes questions à poser au recruteur</div>
+                </div>
+            </div>
+
+            <!-- Exercice 5 -->
+            <div class="highlight-box" style="margin-top: 2rem; background: white; border: 2px solid var(--secondary-color);">
+                <h3>Exercice 5 : les questions à poser</h3>
+                <p><strong>Conseil pour se préparer et s'entraîner :</strong> Préparez toujours 2 ou 3 questions pertinentes à poser en fin d'entretien pour montrer votre intérêt.</p>
+                <ul style="list-style-type: disc; padding-left: 1.5rem;">
+                    <li>Quel type de chantier allez-vous me confier en priorité ?</li>
+                    <li>Comment se passe l’intégration d’un nouveau salarié dans l’équipe ?</li>
+                    <li>Quelles sont les compétences les plus importantes pour réussir sur ce poste ?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYNTHESE -->
+    <footer id="synthese" class="section synthese" style="background-color: var(--primary-color); color: white;">
+        <div class="container">
+            <h2>À retenir pour les participants</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div>
+                    <ul style="list-style-type: none;">
+                        <li style="margin-bottom: 1rem; font-size: 1.2rem;">✓ Un entretien se prépare comme une intervention sur chantier : avec méthode.</li>
+                        <li style="margin-bottom: 1rem; font-size: 1.2rem;">✓ Il faut savoir se présenter, parler de ses points forts et montrer sa motivation.</li>
+                        <li style="margin-bottom: 1rem; font-size: 1.2rem;">✓ Les réponses doivent être claires, courtes et honnêtes.</li>
+                        <li style="margin-bottom: 1rem; font-size: 1.2rem;">✓ La sécurité, la rigueur et l’esprit d’équipe sont des thèmes essentiels.</li>
+                    </ul>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-size: 1.5rem; text-align: center; margin: 0;">
+                            “La confiance naît de la préparation.”
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; text-align: center; font-size: 0.8rem; color: #64748b;">
+                Module 4 - Se préparer à l'entretien.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script simple pour le suivi de la navigation active -->
+    <script>
+        const sections = document.querySelectorAll('section, header, footer');
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('href').includes(current)) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
